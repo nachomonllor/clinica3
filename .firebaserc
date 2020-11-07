@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "clinica2-a896f": {
+      "hosting": {
+        "clinica": [
+          "clinica2-a896f"
+        ]
+      }
+    }
+  }
+}
