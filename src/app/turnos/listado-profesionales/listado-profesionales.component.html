@@ -1,0 +1,24 @@
+<div class="text-center">
+    <button class="btn btn-primary mr-3" (click)="seleccionar('especialidad')" type="button" data-toggle="collapse">Especiliadad</button>
+    <button class="btn btn-primary  mr-3"  (click)="seleccionar('semana')" type="button" data-toggle="collapse">Semana</button>
+    <button class="btn btn-primary"  (click)="seleccionar('apellido')" type="button" data-toggle="collapse">Apellido</button>
+</div>
+
+
+
+<div *ngIf="seleccion == 'especialidad'">
+    <div *ngFor = "let especialidad of listaEspecialidades">
+        {{ especialidad }}
+        <ul>
+            <li *ngFor = "let profesional of filtrarProfesionalesPorEspecialidad(especialidad)" (click)="pedirTurno(profesional)">
+                {{profesional.nombre}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="seleccion == 'apellido'">
+    Apellido
+</div>
+<div *ngIf="seleccion == 'semana'">
+    Semanas
+</div>

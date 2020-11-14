@@ -7,6 +7,7 @@ import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TurnosComponent } from './turnos/turnos.component';
+import { ListadoProfesionalesComponent } from './turnos/listado-profesionales/listado-profesionales.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -19,6 +20,7 @@ canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectLoggedInToH
 /*    { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
      canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectUnauthorizedToLogin } }, */
      { path: 'turnos', component : TurnosComponent},
+     {path: 'turnos/cartilla', component: ListadoProfesionalesComponent }
 ];
 
 /* const routes: Routes = [

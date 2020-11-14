@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Profesional } from '../clases/profesional';
 
 @Component({
   selector: 'app-turnos',
@@ -8,12 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class TurnosComponent implements OnInit {
 
   constructor() { }
-  seleccion;
   ngOnInit(): void {
   }
+   
+  seleccion = "";
 
-  seleccionar(value){
-    this.seleccion = value;
+  mostrarTurnos(){
+    this.seleccion = "turnos";
+  }
+
+  mostrarCartilla() {
+    this.seleccion = "cartilla";
+  }
+
+  profesionalSeleccionado : boolean = false;
+  profesional;
+  pedirTurno(profesional: Profesional){
+    console.log("En componente turno:", profesional);
+
+    //if(this.profesionalSeleccionado) 
+    this.profesional = profesional;
+    this.profesionalSeleccionado = true;
+
   }
 
 }

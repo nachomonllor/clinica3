@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth'
+import { Profesional } from '../clases/profesional';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,10 @@ export class AuthService {
   logout(){
     return this.afAuth.signOut();
   }
+
+  registrarUsuario(profesional: Profesional) {
+    return this.afAuth.createUserWithEmailAndPassword(profesional.email, profesional.password);
+  }
+
 
 }

@@ -20,7 +20,12 @@ import { RegistroComponent } from './registro/registro.component';
 import { RegistroPacienteComponent } from './registro/registro-paciente/registro-paciente.component';
 import { RegistroProfesionalComponent } from './registro/registro-profesional/registro-profesional.component';
 import { TurnosComponent } from './turnos/turnos.component';
-import { EspecialidadComponent } from './especialidad/especialidad.component';
+
+import { MisTurnosPacienteComponent } from './turnos/mis-turnos-paciente/mis-turnos-paciente.component';
+import { PerfilProfesionalComponent } from './perfiles/perfil-profesional/perfil-profesional.component';
+import { ListadoProfesionalesComponent } from './turnos/listado-profesionales/listado-profesionales.component';
+import { PedirTurnoComponent } from './turnos/pedir-turno/pedir-turno.component';
+
 
 
 
@@ -34,10 +39,11 @@ import { EspecialidadComponent } from './especialidad/especialidad.component';
     RegistroProfesionalComponent,
     RegistroPacienteComponent,
     TurnosComponent,
-    EspecialidadComponent,
+    MisTurnosPacienteComponent,
+    PerfilProfesionalComponent,
+    ListadoProfesionalesComponent,
+    PedirTurnoComponent
     
-    
-   
   ],
   imports: [
     BrowserModule,

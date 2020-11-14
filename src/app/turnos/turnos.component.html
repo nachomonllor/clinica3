@@ -1,17 +1,19 @@
-<div class="text-center">
-    <button class="btn btn-primary mr-3" (click)="seleccionar('especialidad')" type="button" data-toggle="collapse">Especiliadad</button>
-    <button class="btn btn-primary  mr-3"  (click)="seleccionar('semana')" type="button" data-toggle="collapse">Semana</button>
-    <button class="btn btn-primary"  (click)="seleccionar('apellido')" type="button" data-toggle="collapse">Apellido</button>
+<div class="row">
+    <div class="col-md-6">
+        <button class="btn btn-block btn-primary" (click) = "mostrarTurnos()">Mis turnos</button>
+    </div>
+    <div class="col-md-6">
+        <button class="btn btn-block btn-primary" (click) = "mostrarCartilla()">Cartilla</button>
+    </div>
 </div>
 
-
-
-<div *ngIf="seleccion == 'especialidad'">
-    <app-especialidad></app-especialidad>
+<div *ngIf = "seleccion == 'turnos'">
+ <app-mis-turnos-paciente></app-mis-turnos-paciente>
 </div>
-<div *ngIf="seleccion == 'apellido'">
-    Apellido
+<div class = "mt-3" *ngIf = "seleccion == 'cartilla'">
+    <app-listado-profesionales  (profesionalSeleccionado)="pedirTurno($event)" ></app-listado-profesionales>
 </div>
-<div *ngIf="seleccion == 'semana'">
-    Semanas
+
+<div *ngIf = "profesionalSeleccionado">
+    <app-pedir-turno [profesional]="profesional">   </app-pedir-turno>
 </div>
