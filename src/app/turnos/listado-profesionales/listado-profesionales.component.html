@@ -16,9 +16,24 @@
         </ul>
     </div>
 </div>
+
 <div *ngIf="seleccion == 'apellido'">
     Apellido
+    <input type = "text" [formControl] = "filtroApellido" >
+
+    <div *ngFor = "let profesional of listaProfesionalesPorApellido" (click)="pedirTurno(profesional)" >
+        {{ profesional.apellido }} {{ profesional.nombre}}
+    </div>
+
 </div>
+
 <div *ngIf="seleccion == 'semana'">
-    Semanas
+    <div *ngFor = "let dia of listaDias">
+        {{ dia }}
+        <ul>
+            <li *ngFor = "let profesional of filtrarProfesionalesPorDia(dia)" (click)="pedirTurno(profesional)">
+                {{profesional.nombre}}
+            </li>
+        </ul>
+    </div>
 </div>

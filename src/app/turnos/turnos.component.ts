@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Profesional } from '../clases/profesional';
 
 @Component({
@@ -7,6 +7,8 @@ import { Profesional } from '../clases/profesional';
   styleUrls: ['./turnos.component.css']
 })
 export class TurnosComponent implements OnInit {
+
+  
 
   constructor() { }
   ngOnInit(): void {

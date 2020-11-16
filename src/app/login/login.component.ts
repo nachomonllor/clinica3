@@ -56,15 +56,17 @@ export class LoginComponent implements OnInit {
       resp => {
         //debugger
         const role =this.form.get('role').value;
+
+        localStorage.setItem('role', role);
         //this.router.navigate(['/home'])
         if(role == "administrador") {
-            this.router.navigate(['/homeAdmin'])
+            this.router.navigate(['/home-admin'])
         }
         else if (role== "profesional"){
-          this.router.navigate(['/homeProfesional'])
+          this.router.navigate(['/home-profesional'])
         }
         else if(role== "paciente") {
-          this.router.navigate(['/homePaciente'])
+          this.router.navigate(['/home-paciente'])
         }
 
       }

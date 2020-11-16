@@ -25,6 +25,14 @@ import { MisTurnosPacienteComponent } from './turnos/mis-turnos-paciente/mis-tur
 import { PerfilProfesionalComponent } from './perfiles/perfil-profesional/perfil-profesional.component';
 import { ListadoProfesionalesComponent } from './turnos/listado-profesionales/listado-profesionales.component';
 import { PedirTurnoComponent } from './turnos/pedir-turno/pedir-turno.component';
+import { HomeAdminComponent } from './home/home-admin/home-admin.component';
+import { HomeProfesionalComponent } from './home/home-profesional/home-profesional.component';
+import { HomePacienteComponent } from './home/home-paciente/home-paciente.component';
+import { HomeProfesionalNoHabilitadoComponent } from './home/home-profesional-no-habilitado/home-profesional-no-habilitado.component';
+import { AltaTurnosComponent } from './turnos/alta-turnos/alta-turnos.component';
+import { TurnosRecibidosComponent } from './turnos/turnos-recibidos/turnos-recibidos.component';
+import { AtenderComponent } from './atencion/atender/atender.component';
+import { EncuestaComponent } from './atencion/encuesta/encuesta.component';
 
 
 
@@ -42,7 +50,15 @@ import { PedirTurnoComponent } from './turnos/pedir-turno/pedir-turno.component'
     MisTurnosPacienteComponent,
     PerfilProfesionalComponent,
     ListadoProfesionalesComponent,
-    PedirTurnoComponent
+    PedirTurnoComponent,
+    HomeAdminComponent,
+    HomeProfesionalComponent,
+    HomePacienteComponent,
+    HomeProfesionalNoHabilitadoComponent,
+    AltaTurnosComponent,
+    TurnosRecibidosComponent,
+    AtenderComponent,
+    EncuestaComponent
     
   ],
   imports: [

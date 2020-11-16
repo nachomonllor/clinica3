@@ -20,4 +20,8 @@ export class ApiService {
         return this.firestore.collection("profesionales").snapshotChanges();
     }
 
+    setHorariosProfesional(profesional: Profesional){
+        //this.firestore.
+    }
+
 }

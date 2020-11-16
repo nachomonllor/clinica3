@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,15 +10,32 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router :Router ) { }
+
+  user: any;
+  logged: boolean;
+  public user$: Observable<any> = this.auth.afAuth.user;
 
   ngOnInit(): void {
-  }
-  
+    this.user$.subscribe(
+      user=> {
+        if(user){
+          this.logged = true;
+        } else{
+          this.logged = false;
+        }
+      }
+    )
+  }  
   logout(e){
     e.preventDefault() //para evitar el refresh
     this.auth.logout().then(
-      resp => console.log(resp)
+      //resp => console.log(resp)
+      resp => this.router.navigate(['/login'])
     )
+  }
+
+  registrarse() {
+    this.router.navigate(['/registro']);
   }
 }

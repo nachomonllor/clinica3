@@ -1,31 +1,47 @@
 
+<div class="card">
+  <div class="card-header">
+    Pedir Turno
+  </div>
+  <div class="card-body text-center">
+    <div>
+      {{ profesional.nombre }}
+      {{ profesional.apellido }}  
+    </div>
 
-<form class="form-inline">
+    <form class="form-inline">
+     
    
-    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>Seleccionar Dia</option>
-        <option value="1">Lunes</option>
-        
-        
-      </select>
-    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected disabled>Especialidad</option>
-        <option *ngFor = "let especialidad of profesional.especialidades" [value]="especialidad">{{ especialidad }}</option>
-
-        
-      </select>
-  
-    <label class="sr-only" for="inlineFormInputGroupUsername2">Fecha</label>
-    <div class="input-group mr-sm-2">
-      <input type="date" class="form-control" id="inlineFormInputGroupUsername2">
-    </div>
-
-    <label class="sr-only" for="inlineFormInputGroupUsername2">Hora</label>
-    <div class="input-group mr-sm-2">
-      <input type="time" class="form-control" id="inlineFormInputGroupUsername2">
-    </div>
-
-
-  
-    <button type="submit" class="btn btn-primary">Pedir turno</button>
-  </form>
+       <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+           <option selected>Seleccionar Dia</option>
+           <!--option value="1">Lunes</option-->
+           <option *ngFor = "let dias of profesional.dias" >
+                {{ dias }}
+           </option>
+           
+           
+         </select>
+       <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+           <option selected disabled>Especialidad</option>
+           <option *ngFor = "let especialidad of profesional.especialidades" [value]="especialidad">{{ especialidad }}</option>
+   
+           
+         </select>
+     
+       <label class="sr-only" for="inlineFormInputGroupUsername2">Fecha</label>
+       <div class="input-group mr-sm-2">
+         <input type="date" class="form-control" id="inlineFormInputGroupUsername2">
+       </div>
+   
+       <label class="sr-only" for="inlineFormInputGroupUsername2">Hora</label>
+       <div class="input-group mr-sm-2">
+         <input type="time" class="form-control" id="inlineFormInputGroupUsername2">
+       </div>
+   
+   
+     
+       <button type="submit" class="btn btn-primary">Pedir turno</button>
+       <button type="submit" class="btn btn-danger" (click) = "cancelarTurno()">Cancelar</button>
+     </form>
+  </div>
+</div>

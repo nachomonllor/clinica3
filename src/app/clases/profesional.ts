@@ -7,5 +7,8 @@ export class Profesional extends Usuario{
     }
     especialidades = [];
     habilitado:boolean;
-    atencion = [];
+    dias = [];
+    horario = [];
+    duracion_turno :number;
+
 }

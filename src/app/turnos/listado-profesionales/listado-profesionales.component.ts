@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Profesional } from 'src/app/clases/profesional';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,7 +12,18 @@ export class ListadoProfesionalesComponent implements OnInit {
 
   @Output() profesionalSeleccionado = new EventEmitter<Profesional>();
 
+
+
+  filtroApellido: FormControl;
+
   constructor(private apiService: ApiService) { 
+    this.listaProfesionalesPorApellido = this.listaProfesionales;
+    this.filtroApellido = new FormControl();
+    this.filtroApellido.valueChanges.subscribe(
+      text => {
+        this.listaProfesionalesPorApellido = this.listaProfesionales.filter(profesional => profesional.apellido.trim().toLocaleLowerCase().includes(text.toLowerCase()) )
+      }
+    )
 
     this.apiService.traerTodosLosProfesionales().subscribe(
       (respuesta) =>{
@@ -31,8 +43,12 @@ export class ListadoProfesionalesComponent implements OnInit {
   }
  
   listaProfesionales = new Array<Profesional>();
+  listaProfesionalesPorApellido = new Array<Profesional>();
+
   listaEspecialidades = new Array<string>();
+  listaDias  = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
   seleccion
+
   ngOnInit(): void {
 
   
@@ -40,6 +56,10 @@ export class ListadoProfesionalesComponent implements OnInit {
 
   filtrarProfesionalesPorEspecialidad(especialidad: string) {     
     return this.listaProfesionales.filter(profesional => profesional.especialidades.includes(especialidad))
+  }
+
+  filtrarProfesionalesPorDia(dia: string) {     
+    return this.listaProfesionales.filter(profesional => profesional.dias.includes(dia))
   }
 
   pedirTurno(profesional:Profesional) {

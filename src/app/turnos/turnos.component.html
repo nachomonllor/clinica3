@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf = "!profesionalSeleccionado">
     <div class="col-md-6">
         <button class="btn btn-block btn-primary" (click) = "mostrarTurnos()">Mis turnos</button>
     </div>
@@ -10,10 +10,10 @@
 <div *ngIf = "seleccion == 'turnos'">
  <app-mis-turnos-paciente></app-mis-turnos-paciente>
 </div>
-<div class = "mt-3" *ngIf = "seleccion == 'cartilla'">
+<div class = "mt-3" *ngIf = "seleccion == 'cartilla' && !profesionalSeleccionado">
     <app-listado-profesionales  (profesionalSeleccionado)="pedirTurno($event)" ></app-listado-profesionales>
 </div>
 
 <div *ngIf = "profesionalSeleccionado">
-    <app-pedir-turno [profesional]="profesional">   </app-pedir-turno>
+    <app-pedir-turno [profesional]="profesional" (cancelaTurno) = "profesionalSeleccionado = false" >   </app-pedir-turno>
 </div>
