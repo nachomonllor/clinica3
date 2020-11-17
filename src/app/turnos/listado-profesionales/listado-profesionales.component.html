@@ -5,19 +5,59 @@
 </div>
 
 
-
-<div *ngIf="seleccion == 'especialidad'">
+<!-- <div *ngIf="seleccion == 'especialidad'">
     <div *ngFor = "let especialidad of listaEspecialidades">
         {{ especialidad }}
         <ul>
-            <li *ngFor = "let profesional of filtrarProfesionalesPorEspecialidad(especialidad)" (click)="pedirTurno(profesional)">
+             <li *ngFor = "let profesional of filtrarProfesionalesPorEspecialidad(especialidad)" (click)="pedirTurno(profesional)">
                 {{profesional.nombre}}
-            </li>
+            </li> 
         </ul>
     </div>
 </div>
 
-<div *ngIf="seleccion == 'apellido'">
+ -->
+
+
+<!-- 
+
+  <div *ngIf="seleccion == 'especialidad'">
+    <div *ngFor = "let especialidad of listaEspecialidades">
+        {{ especialidad }}
+        <ul>
+             <li *ngFor = "let profesional of filtrarProfesionalesPorEspecialidad(especialidad)" (click)="pedirTurno(profesional)">
+                {{profesional.nombre}}
+            </li> 
+        </ul>
+    </div>
+</div> -->
+
+
+<div *ngIf="seleccion == 'especialidad'">
+    <div *ngFor = "let especialidad of listaEspecialidades">
+        {{especialidad}}
+        <table class="table">
+           <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                </tr>
+            </thead>
+           
+            <tr *ngFor="let profesional of filtrarProfesionalesPorEspecialidad(especialidad)" (click) = "pedirTurno(profesional)">
+                <!--th scope="row">{{profesional.apellido}}</th-->
+                <td>{{profesional.nombre}}</td>
+                <td>{{profesional.apellido}}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+ 
+ 
+
+
+<!-- <div *ngIf="seleccion == 'apellido'">
     Apellido
     <input type = "text" [formControl] = "filtroApellido" >
 
@@ -26,8 +66,32 @@
     </div>
 
 </div>
+ -->
 
-<div *ngIf="seleccion == 'semana'">
+
+ <div *ngIf="seleccion == 'apellido'">
+    Apellido
+    <input type = "text" [formControl] = "filtroApellido" >
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Apellido</th>
+              <th scope="col">Nombre</th>
+            </tr>
+          </thead>
+
+        <tr *ngFor="let profesional of listaProfesionalesPorApellido" (click) = "pedirTurno(profesional)">
+            <th scope="row">{{profesional.apellido}}</th>
+            <td>{{profesional.nombre}}</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+<!-- <div *ngIf="seleccion == 'semana'">
     <div *ngFor = "let dia of listaDias">
         {{ dia }}
         <ul>
@@ -37,3 +101,38 @@
         </ul>
     </div>
 </div>
+ -->
+
+ 
+<div *ngIf="seleccion == 'semana'">
+    <div *ngFor = "let dia of listaDias">
+        {{dia}}
+        <table class="table">
+           <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Nombre</th>
+                </tr>
+            </thead>
+           
+            <tr *ngFor="let profesional of filtrarProfesionalesPorDia(dia)" (click) = "pedirTurno(profesional)">
+                <th scope="row">{{profesional.apellido}}</th>
+                <td>{{profesional.nombre}}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- <div *ngIf="seleccion == 'semana'">
+    <table class = "table">
+        <ng-container *ngFor="let dia of listaDias">
+            <tr><td>{{dia}}</td></tr>
+            <tr *ngFor="let profesional of filtrarProfesionalesPorDia(dia)" (click) = "pedirTurno(profesional)"><td>{{profesional.nombre}}</td></tr>
+        </ng-container>
+   </table>
+
+
+</div> -->

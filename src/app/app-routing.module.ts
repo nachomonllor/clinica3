@@ -34,7 +34,7 @@ canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectLoggedInToH
       { path: 'horarios', component: AltaTurnosComponent },
       { path: 'turnos_recibidos', component: TurnosRecibidosComponent},
       { path: 'atender', component: AtenderComponent}
-    ], canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectUnauthorizedToLogin }}//TODO: Verificar que sea prof.},
+    ], canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectUnauthorizedToLogin }},
 ];
 
 /* const routes: Routes = [
