@@ -36,7 +36,7 @@
 <div *ngIf="seleccion == 'especialidad'">
     <div *ngFor = "let especialidad of listaEspecialidades">
         {{especialidad}}
-        <table class="table">
+        <table class="table table-hover">
            <thead class="thead-dark">
                 <tr>
                   <th scope="col">Nombre</th>
@@ -48,7 +48,7 @@
                 <!--th scope="row">{{profesional.apellido}}</th-->
                 <td>{{profesional.nombre}}</td>
                 <td>{{profesional.apellido}}</td>
-                <td></td>
+               
             </tr>
         </table>
     </div>
@@ -72,7 +72,7 @@
  <div *ngIf="seleccion == 'apellido'">
     Apellido
     <input type = "text" [formControl] = "filtroApellido" >
-    <table class="table">
+    <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
               <th scope="col">Apellido</th>
@@ -83,7 +83,7 @@
         <tr *ngFor="let profesional of listaProfesionalesPorApellido" (click) = "pedirTurno(profesional)">
             <th scope="row">{{profesional.apellido}}</th>
             <td>{{profesional.nombre}}</td>
-            <td></td>
+           
         </tr>
     </table>
 </div>
@@ -107,7 +107,7 @@
 <div *ngIf="seleccion == 'semana'">
     <div *ngFor = "let dia of listaDias">
         {{dia}}
-        <table class="table">
+        <table class="table table-hover">
            <thead class="thead-dark">
                 <tr>
                   <th scope="col">Apellido</th>
@@ -118,7 +118,7 @@
             <tr *ngFor="let profesional of filtrarProfesionalesPorDia(dia)" (click) = "pedirTurno(profesional)">
                 <th scope="row">{{profesional.apellido}}</th>
                 <td>{{profesional.nombre}}</td>
-                <td></td>
+                
             </tr>
         </table>
     </div>

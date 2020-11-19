@@ -33,6 +33,9 @@ import { AltaTurnosComponent } from './turnos/alta-turnos/alta-turnos.component'
 import { TurnosRecibidosComponent } from './turnos/turnos-recibidos/turnos-recibidos.component';
 import { AtenderComponent } from './atencion/atender/atender.component';
 import { EncuestaComponent } from './atencion/encuesta/encuesta.component';
+import { AltaAdminComponent } from './altas/alta-admin/alta-admin.component';
+import { AltaProfesionalComponent } from './altas/alta-profesional/alta-profesional.component';
+import { AltaUsuarioComponent } from './altas/alta-usuario/alta-usuario.component';
 
 
 
@@ -58,7 +61,10 @@ import { EncuestaComponent } from './atencion/encuesta/encuesta.component';
     AltaTurnosComponent,
     TurnosRecibidosComponent,
     AtenderComponent,
-    EncuestaComponent
+    EncuestaComponent,
+    AltaAdminComponent,
+    AltaProfesionalComponent,
+    AltaUsuarioComponent
     
   ],
   imports: [

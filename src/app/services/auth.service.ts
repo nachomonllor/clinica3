@@ -19,7 +19,12 @@ export class AuthService {
         user =>{
           if(user){
             //console.log(user.email);
-            return this.firestore.collection('profesionales', ref => ref.where("email", "==" , user.email)).valueChanges()
+            if(localStorage.getItem('role') == 'profesional') {
+              return this.firestore.doc('profesionales/'+user.email).valueChanges()
+            }
+            else if(localStorage.getItem('role') == 'paciente') {
+              return this.firestore.doc('pacientes/'+user.email).valueChanges()
+            }
           }else{
             return new Observable<null>();
           }
@@ -37,7 +42,7 @@ export class AuthService {
     return this.afAuth.signOut();
   }
 
-  registrarUsuario(profesional: Profesional) {
+  registrarUsuario(profesional) {
     return this.afAuth.createUserWithEmailAndPassword(profesional.email, profesional.password);
   }
 

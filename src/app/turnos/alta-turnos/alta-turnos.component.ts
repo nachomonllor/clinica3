@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profesional } from 'src/app/clases/profesional';
+import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,13 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AltaTurnosComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private api : ApiService) { }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(
       user=>{
-        if(user){
-          this.profesional = user[0]; //porque firebase trae como un array
+        if(user){         
+          this.profesional = user;
+          if(this.profesional.horario != undefined) {
+            this.desde = this.profesional.horario[0];
+            this.hasta = this.profesional.horario[1];
+          }
           console.log(this.profesional)
           this.listaDias.forEach(
             dia => {
@@ -39,6 +44,7 @@ export class AltaTurnosComponent implements OnInit {
     this.profesional.dias = this.listaDias.filter(dia=> dia.checked).map(dia => dia.nombre)
     this.profesional.horario = [this.desde, this.hasta]
     console.log(this.profesional)
+    this.api.modificarProfesional(this.profesional);
 
   }
 
