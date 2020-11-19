@@ -8,13 +8,13 @@ import { Profesional } from '../clases/profesional';
 })
 export class TurnosComponent implements OnInit {
 
-  
+  profesionalSeleccionado : boolean = false;
+  profesional;
+  seleccion = "";
 
   constructor() { }
   ngOnInit(): void {
   }
-   
-  seleccion = "";
 
   mostrarTurnos(){
     this.seleccion = "turnos";
@@ -24,8 +24,7 @@ export class TurnosComponent implements OnInit {
     this.seleccion = "cartilla";
   }
 
-  profesionalSeleccionado : boolean = false;
-  profesional;
+
   pedirTurno(profesional: Profesional){
     console.log("En componente turno:", profesional);
 

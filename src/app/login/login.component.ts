@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
     email: new FormControl(  null, Validators.required),
     password: new FormControl(null, Validators.required),
     //remember: new FormControl(email ? true : false )
-     role: new FormControl("profesional", Validators.required)
+     role: new FormControl("", Validators.required)
     });
     }
  
 
-  rolSeleccionado: string = "Administrador";
+  rolSeleccionado: string = "";
 
   //event handler for the select element's change event
   selectChangeHandler (event: any) {
@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     
+    //verificar de acuerdo el rol si coincide con el mail
     //e.preventDefault(); //evita que se recargue la pagina
     this.auth.login(this.form.get('email').value, this.form.get('password').value).then(
       
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit {
         if(role == "administrador") {
             this.router.navigate(['/home-admin'])
         }
-        else if (role== "profesional"){
+        else if (role== "profesional"){ //TODO: Verificar que esté autorizado
           this.router.navigate(['/home-profesional'])
         }
         else if(role== "paciente") {

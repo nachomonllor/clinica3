@@ -36,13 +36,13 @@
 
                         <!-- <select [compareWith]="compareFn"  [formControl]="selectRol"> -->
                         <select class="form-control" formControlName="role">
-                            <option disabled selected>Seleccionar rol...</option>
+                            <option value="">Seleccionar rol...</option>
                             <option value="administrador">Administrador</option>
                             <option value="profesional">Profesional</option>
                             <option value="paciente">Paciente</option>
                         </select>
                         <br>
-                        Rol seleccionado: {{form.get('role').value}}
+                        <!--Rol seleccionado: {{form.get('role').value}}-->
 
                     </div>
                     <!-- <div class="alert alert-danger" role="alert" *ngIf="error != undefined">

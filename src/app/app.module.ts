@@ -36,6 +36,7 @@ import { EncuestaComponent } from './atencion/encuesta/encuesta.component';
 import { AltaAdminComponent } from './altas/alta-admin/alta-admin.component';
 import { AltaProfesionalComponent } from './altas/alta-profesional/alta-profesional.component';
 import { AltaUsuarioComponent } from './altas/alta-usuario/alta-usuario.component';
+import { SacarTurnoComponent } from './turnos/sacar-turno/sacar-turno.component';
 
 
 
@@ -64,7 +65,8 @@ import { AltaUsuarioComponent } from './altas/alta-usuario/alta-usuario.componen
     EncuestaComponent,
     AltaAdminComponent,
     AltaProfesionalComponent,
-    AltaUsuarioComponent
+    AltaUsuarioComponent,
+    SacarTurnoComponent
     
   ],
   imports: [

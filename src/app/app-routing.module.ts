@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'registro', component : RegistroComponent/*,
 canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectLoggedInToHome }*/ },
 
-     { path: 'turnos', component : TurnosComponent},
+     //{ path: 'turnos', component : TurnosComponent},
      {path: 'turnos/cartilla', component: ListadoProfesionalesComponent },
 
      {path: 'home-profesional', component: HomeProfesionalComponent ,  canActivate: [AngularFireAuthGuard],  data: { authGuardPipe: redirectUnauthorizedToLogin }},

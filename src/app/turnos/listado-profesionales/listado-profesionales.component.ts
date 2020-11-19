@@ -12,7 +12,13 @@ export class ListadoProfesionalesComponent implements OnInit {
 
   @Output() profesionalSeleccionado = new EventEmitter<Profesional>();
 
+ 
+  listaProfesionales = new Array<Profesional>();
+  listaProfesionalesPorApellido = new Array<Profesional>();
 
+  listaEspecialidades = new Array<string>();
+  listaDias  = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
+  seleccion
 
   filtroApellido: FormControl;
 
@@ -41,13 +47,7 @@ export class ListadoProfesionalesComponent implements OnInit {
     )
 
   }
- 
-  listaProfesionales = new Array<Profesional>();
-  listaProfesionalesPorApellido = new Array<Profesional>();
 
-  listaEspecialidades = new Array<string>();
-  listaDias  = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'];
-  seleccion
 
   ngOnInit(): void {
 

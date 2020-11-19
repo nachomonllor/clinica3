@@ -10,6 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AltaTurnosComponent implements OnInit {
 
+
+  profesional = new Profesional();
+  desde: number;
+  hasta: number;
+  
   constructor(private auth: AuthService, private api : ApiService) { }
 
   ngOnInit(): void {
@@ -36,10 +41,7 @@ export class AltaTurnosComponent implements OnInit {
     )
   }
 
-  profesional = new Profesional();
-  desde: number;
-  hasta: number;
-  
+
   guardar() {
     this.profesional.dias = this.listaDias.filter(dia=> dia.checked).map(dia => dia.nombre)
     this.profesional.horario = [this.desde, this.hasta]

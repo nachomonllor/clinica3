@@ -24,9 +24,7 @@
        <select name ="especialidad" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" [(ngModel)] = "turno.especialidad">
            <option selected disabled>Especialidad</option>
            <option *ngFor = "let especialidad of profesional.especialidades" [value]="especialidad">{{ especialidad }}</option>
-   
-           
-         </select>
+       </select>
      
        <label class="sr-only" for="inlineFormInputGroupUsername2" >Fecha</label>
        <div class="input-group mr-sm-2">
@@ -38,7 +36,6 @@
          <input name ="hora" type="time" class="form-control" id="inlineFormInputGroupUsername2" [(ngModel)] ="turno.horario" >
        </div>
    
-  
        <button type="submit" class="btn btn-primary">Pedir turno</button>
        <button type="submit" class="btn btn-danger" (click) = "cancelarTurno()">Cancelar</button>
      </form>

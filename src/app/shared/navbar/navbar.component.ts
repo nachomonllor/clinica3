@@ -14,18 +14,22 @@ export class NavbarComponent implements OnInit {
 
   user: any;
   logged: boolean;
-  public user$: Observable<any> = this.auth.afAuth.user;
-
+  public user$: Observable<any> = this.auth.afAuth.user; //los datos de logueo
+  role: string;
   ngOnInit(): void {
+    // Datos de logueo
     this.user$.subscribe(
       user=> {
         if(user){
+          this.user = user;
+          this.role = localStorage.getItem('role');
           this.logged = true;
         } else{
           this.logged = false;
         }
       }
     )
+   
   }  
   logout(e){
     e.preventDefault() //para evitar el refresh

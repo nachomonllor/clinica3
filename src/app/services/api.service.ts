@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 import { Profesional } from '../clases/profesional';
 import { Turno } from '../clases/turno';
 import { Usuario } from '../clases/usuario';
@@ -41,14 +42,25 @@ export class ApiService {
         this.firestore.collection('profesionales').doc(profesional.email).set(profesional);
     }
 
-    getProfesionalesTurnos(profesional){
+    getProfesionalesTurnos(profesional: Profesional){
         //this.firestore.collection("turnos", ref => {where})
         // emtodos los emeail_profesional que sean == a profesional.email
+        //db = firebase.firestore(app);
+        //var query = citiesRef.where("state", "==", "CA");
+        
+        //let lista = this.firestore.collection('profesionales');
+        //let colombianos = personas.filter(persona => persona.pais === 'Colombia');
+
+        
+        //email_profesional
+        return this.firestore.collection("turnos", ref => ref.where('email_profesional', '==',profesional.email )).snapshotChanges()
+
     }
 
-    getPacienteTurnos(usuario){
+    getPacienteTurnos(usuario: Usuario){
         //email_paciente == usuario.email
         //como hacer un where buscar
+        return this.firestore.collection("turnos", ref => ref.where('email_paciente', '==', usuario.email )).snapshotChanges();
     }
 
 
