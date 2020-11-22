@@ -63,5 +63,10 @@ export class ApiService {
         return this.firestore.collection("turnos", ref => ref.where('email_paciente', '==', usuario.email )).snapshotChanges();
     }
 
+    modificarTurno(turno){
+        this.firestore.collection('turnos').doc(turno.id).set(turno);
+
+    }
+
 
 }

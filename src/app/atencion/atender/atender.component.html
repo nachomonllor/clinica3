@@ -1,1 +1,52 @@
-<p>atender works!</p>
+<form>
+    {{turno.email_paciente}}
+    <div class="form-row">
+        <div class="col">
+            <label for="">Presion</label>
+            <input type="text" class="form-control" name = "presion" [(ngModel)] = "preguntas.presion" >
+        </div>
+        <div class="col">
+            <label for="">Estatura</label>
+            <input type="text" class="form-control" name = "estatura" [(ngModel)] = "preguntas.estatura" >
+        </div>
+        <div class="col">
+            <label for="">Peso</label>
+            <input type="text" class="form-control"  name = "peso" [(ngModel)] ="preguntas.peso">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label for="">Temperatura corporal</label>
+            <input type="text" class="form-control" name = "temperatura" [(ngModel)] ="preguntas.temperatura">
+        </div>
+        <div class="col">
+            <label for="">Edad</label>
+            <input type="text" class="form-control" name = "edad" [(ngModel)] ="preguntas.edad">
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-5">
+                    <label for="">Pregunta</label>
+                    <input type="text" class="form-control" name = "pregunta" [(ngModel)] = "pregunta.pregunta" >
+                </div>
+                <div class="col-5">
+                    <label for="">Respuesta</label>
+                    <input type="text" class="form-control" name = "respuesta" [(ngModel)] = "pregunta.respuesta" >
+                </div>
+                <div class="col-2">
+                    <label for="">.</label>
+                    <button class="btn btn-primary" (click)="agregarPregunta()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
+      
+    </div>
+    <button class="btn btn-success" (click)="guardarTurno()">Guardar</button>
+
+</form>
+
+{{preguntas | json}}

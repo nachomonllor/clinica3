@@ -37,6 +37,7 @@ import { AltaAdminComponent } from './altas/alta-admin/alta-admin.component';
 import { AltaProfesionalComponent } from './altas/alta-profesional/alta-profesional.component';
 import { AltaUsuarioComponent } from './altas/alta-usuario/alta-usuario.component';
 import { SacarTurnoComponent } from './turnos/sacar-turno/sacar-turno.component';
+import { CambiaColorEstado } from './directivas/cambiaColor.directive';
 
 
 
@@ -66,7 +67,8 @@ import { SacarTurnoComponent } from './turnos/sacar-turno/sacar-turno.component'
     AltaAdminComponent,
     AltaProfesionalComponent,
     AltaUsuarioComponent,
-    SacarTurnoComponent
+    SacarTurnoComponent,
+    CambiaColorEstado
     
   ],
   imports: [

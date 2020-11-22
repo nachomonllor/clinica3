@@ -11,14 +11,26 @@ import { AuthService } from 'src/app/services/auth.service';
 export class TurnosRecibidosComponent implements OnInit {
 
   constructor(private api: ApiService, private auth: AuthService) { }
-  listaTurnos = new Array<Turno>();
+  listaTurnos = new Array();
 
   ngOnInit(): void {
 
     this.auth.user$.subscribe(
       user=>{
         if(user){         
-           this.api.getProfesionalesTurnos(user).subscribe( resp => this.listaTurnos = (resp.map(elem => elem.payload.doc.data() as Turno)));
+           this.api.getProfesionalesTurnos(user).subscribe( 
+             resp => {
+               console.log(resp);
+               this.listaTurnos = resp.map(
+                 elem =>{
+                   let turno = new Turno();
+                   turno = elem.payload.doc.data() as Turno;
+                   turno.id = elem.payload.doc.id;
+                    return turno;
+                 }
+                 )
+             }
+           );
           
         }else{
           console.log(user);
@@ -26,6 +38,31 @@ export class TurnosRecibidosComponent implements OnInit {
       }
         
     )
+  }
+
+  aceptarTurno(turno: Turno) {
+    //console.log(turno)
+    turno.estado = "aceptado";
+    this.api.modificarTurno({... turno});
+  }
+  cancelarTurno(turno: Turno) {
+    turno.estado = "cancelado";
+    this.api.modificarTurno({... turno});
+
+  }
+
+  getTurnosPendientes() {
+    return this.listaTurnos.filter(turno => turno.estado == "pendiente");
+  }
+
+  getTurnosNoPendientes() {
+    return this.listaTurnos.filter(turno => turno.estado != "pendiente");
+  }
+
+  turnoSeleccionado;
+
+  seleccionarTurno(turno) {
+    this.turnoSeleccionado  = turno;
   }
 
 }
