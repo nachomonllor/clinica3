@@ -15,7 +15,7 @@ export class AtenderComponent implements OnInit {
     estatura: '',
     peso: '',
     temperatura: '',
-    edad: ''
+    edad: '',
   }
 
   pregunta = {

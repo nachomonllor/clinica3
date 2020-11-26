@@ -65,4 +65,9 @@ export class TurnosRecibidosComponent implements OnInit {
     this.turnoSeleccionado  = turno;
   }
 
+  turno: Turno;
+  verTurno(turno: Turno) {
+      this.turno = turno;
+  }
+
 }

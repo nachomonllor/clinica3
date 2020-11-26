@@ -39,7 +39,7 @@ export class ApiService {
     }
 
     modificarProfesional(profesional: Profesional){
-        this.firestore.collection('profesionales').doc(profesional.email).set(profesional);
+        return this.firestore.collection('profesionales').doc(profesional.email).set(profesional);
     }
 
     getProfesionalesTurnos(profesional: Profesional){

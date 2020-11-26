@@ -41,12 +41,16 @@ export class AltaTurnosComponent implements OnInit {
     )
   }
 
+  alerta: boolean = false;
 
   guardar() {
     this.profesional.dias = this.listaDias.filter(dia=> dia.checked).map(dia => dia.nombre)
     this.profesional.horario = [this.desde, this.hasta]
     console.log(this.profesional)
-    this.api.modificarProfesional(this.profesional);
+    this.api.modificarProfesional(this.profesional).then(resp => this.alerta = true);
+
+    
+
 
   }
 
